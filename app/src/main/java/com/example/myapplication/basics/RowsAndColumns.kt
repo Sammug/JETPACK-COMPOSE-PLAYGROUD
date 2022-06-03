@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
@@ -21,7 +22,12 @@ import androidx.compose.ui.unit.sp
     Row(modifier = modifier
         .height(20.dp)
         .width(40.dp)
-        .background(Color.Blue)
+        .background(Color.Blue),
+        /**
+         *Use vertical arrangement and horizontal alignment to position row children
+         */
+        verticalAlignment = Alignment.Top,
+        horizontalArrangement = Arrangement.Start
     ) {
         //Display a text in row
         Text(text = "Hello there!!", fontSize = 18.sp,
@@ -44,7 +50,12 @@ fun AColumn(modifier: Modifier){
     Column(modifier = modifier
         .width(20.dp) // use modifier.height to set column height
         .height(20.dp) // use modifier.width to set column width
-        .background(Color.Blue)
+        .background(Color.Blue),
+        /**
+         *Use vertical arrangement and horizontal alignment to position @Column children
+         */
+        horizontalAlignment = Alignment.Start,
+        verticalArrangement = Arrangement.Top
     ){
         //Display a text in this column
         Text(text = "Hello there!!", fontSize = 18.sp,
