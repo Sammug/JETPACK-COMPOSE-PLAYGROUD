@@ -18,23 +18,30 @@ import androidx.compose.ui.unit.sp
  * A Row has a horizontal orientation
  */
 @Composable
- fun ARow(modifier: Modifier){
+ fun AddRow(modifier: Modifier){
     Row(modifier = modifier
-        .height(20.dp)
-        .width(40.dp)
-        .background(Color.Blue),
+        .height(48.dp)
+        .fillMaxWidth(),
         /**
          *Use vertical arrangement and horizontal alignment to position row children
          */
-        verticalAlignment = Alignment.Top,
-        horizontalArrangement = Arrangement.Start
+//        verticalAlignment = Alignment.Top,
+//        horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         //Display a text in row
-        Text(text = "Hello there!!", fontSize = 18.sp,
-            color = Color.Black, fontStyle = Italic,
+        Text(modifier = Modifier
+            .align(Alignment.Bottom),
+            text = "Hey You!!, I am in row",
+            fontSize = 18.sp,
+            color = Color.Black,
+            fontStyle = Italic,
             fontFamily = FontFamily.SansSerif)
         //Add a button after the text
-        Button(onClick = { /*DO SOMETHING*/ }) {
+        Button(onClick = { /*DO SOMETHING*/ },
+            modifier = Modifier
+                .padding(start = 20.dp)
+                .background(Color.Blue)
+            ) {
             //Add button text
             Text(text = "I am clickable")
         }
@@ -46,11 +53,13 @@ import androidx.compose.ui.unit.sp
  * A column has a vertical orientation
  */
 @Composable
-fun AColumn(modifier: Modifier){
+fun AddColumn(modifier: Modifier){
     Column(modifier = modifier
-        .width(20.dp) // use modifier.height to set column height
-        .height(20.dp) // use modifier.width to set column width
-        .background(Color.Blue),
+        /**
+         * Can use @{Modifier.size(height = 20.dp, width = 200.dp)} to resize the column
+         */
+        .fillMaxWidth() // use modifier.height to set column height
+        .fillMaxHeight(), // use modifier.width to set column width
         /**
          *Use vertical arrangement and horizontal alignment to position @Column children
          */
@@ -58,7 +67,7 @@ fun AColumn(modifier: Modifier){
         verticalArrangement = Arrangement.Top
     ){
         //Display a text in this column
-        Text(text = "Hello there!!", fontSize = 18.sp,
+        Text(text = "Hello there!!, I am in a column", fontSize = 18.sp,
             color = Color.Black, fontStyle = Italic,
             fontFamily = FontFamily.SansSerif)
         //Add a button after the text it will appear below the text
@@ -72,5 +81,7 @@ fun AColumn(modifier: Modifier){
             //Add button text
             Text(text = "I am clickable")
         }
+
+        AddRow(modifier = modifier)
     }
 }
